@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REcase: Eco-Friendly Phone Cases</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+        header {
+            background: #808080;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 400px;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hero h1 {
+            font-size: 2.5em;
+        }
+        .hero p {
+            font-size: 1.2em;
+        }
+        .video-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .products {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .product {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 30%;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Eco-Friendly Phone Cases</h1>
+</header>
+
+<div class="hero">
+    <h1>Protect Your Phone, Protect the Planet</h1>
+    <p>Transparent phone cases made from recycled plastic bottles</p>
+</div>
+
+<div class="video-container">
+    <h2>Watch Our Journey</h2>
+    <video width="600" controls>
+        <source src="Transforming_Plastic_Waste_into_Eco-Friendly_Phone.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<section class="products">
+    <div class="product">
+        <h3>Eco-Friendly Transparent Phone Case</h3>
+        <p>Durable and stylish phone case made from 100% recycled plastic bottles.</p>
+        <p>Price: $XX.XX</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product">
+        <h3>Customizable Eco-Friendly Phone Case</h3>
+        <p>Personalize your case while being eco-conscious.</p>
+        <p>Price: $XX.XX</p>
+        <button>Add to Cart</button>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2023 Eco-Friendly Phone Cases | A young company with a mission to reduce plastic waste.</p>
+    <p>Contact us: info@ecofriendlyphonecases.com</p>
+</footer>
+
+</body>
+</html>
+
