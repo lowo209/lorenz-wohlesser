@@ -55,6 +55,48 @@
             background: #333;
             color: white;
         }
+        .file-section {
+            background: #f5f5f5;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        .file-upload-container {
+            display: inline-block;
+            position: relative;
+            margin: 20px 0;
+        }
+        .file-upload-btn {
+            background: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .file-upload-btn:hover {
+            background: #0056b3;
+        }
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        .file-info {
+            margin-top: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+        .file-info.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -75,6 +117,23 @@
         Your browser does not support the video tag.
     </video>
 </div>
+
+<section class="file-section">
+    <h2>Select MF4 Data File</h2>
+    <p>Choose an MF4 measurement data file from your computer</p>
+    
+    <div class="file-upload-container">
+        <button class="file-upload-btn">Choose MF4 File</button>
+        <input type="file" class="file-input" accept=".mf4" id="mf4FileInput">
+    </div>
+    
+    <div class="file-info" id="fileInfo">
+        <h3>Selected File:</h3>
+        <p id="fileName"></p>
+        <p id="fileSize"></p>
+        <p id="fileType"></p>
+    </div>
+</section>
 
 <section class="products">
     <div class="product">
@@ -97,4 +156,42 @@
 </footer>
 
 </body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('mf4FileInput');
+    const fileInfo = document.getElementById('fileInfo');
+    const fileName = document.getElementById('fileName');
+    const fileSize = document.getElementById('fileSize');
+    const fileType = document.getElementById('fileType');
+
+    fileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        
+        if (file) {
+            // Show file information
+            fileName.textContent = file.name;
+            fileSize.textContent = `Size: ${formatFileSize(file.size)}`;
+            fileType.textContent = `Type: ${file.type || 'MF4 Data File'}`;
+            fileInfo.classList.add('show');
+            
+            console.log('MF4 file selected:', file.name);
+            
+            // You can add additional file processing logic here
+            // For example, reading the file content or uploading it
+        } else {
+            fileInfo.classList.remove('show');
+        }
+    });
+
+    function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+});
+</script>
+
 </html>
